@@ -7,7 +7,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/jokeyrhyme/go-coverage-threshold/pkg/cover"
+	"github.com/whitehatsec/go-coverage-threshold/pkg/cover"
 )
 
 const (

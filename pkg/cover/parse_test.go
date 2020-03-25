@@ -7,8 +7,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/jokeyrhyme/go-coverage-threshold/pkg/cover"
 	"github.com/stretchr/testify/assert"
+	"github.com/whitehatsec/go-coverage-threshold/pkg/cover"
 )
 
 func readFixture(t *testing.T, s string) []byte {

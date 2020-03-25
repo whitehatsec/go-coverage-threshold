@@ -12,7 +12,7 @@ func Run() ([]byte, error) {
 	}
 
 	// gas lint warns about possible injection here, but we're fine
-	cmd := exec.Command(goExe, "test", "-cover", "./...") // nolint: gas,gosec
+	cmd := exec.Command("bash", "-c", goExe+" test -coverprofile aggregate.coverprofile ./... | grep -v 'no test files'") // nolint: gas,gosec
 
 	output, err := cmd.CombinedOutput()
 	return output, err
