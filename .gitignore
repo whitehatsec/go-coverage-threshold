@@ -15,3 +15,7 @@
 
 # 3rd-party files
 vendor
+
+# Intellij
+*.iml
+.idea/
