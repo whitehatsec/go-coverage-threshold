@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"regexp"
+	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -41,7 +42,7 @@ func TestFindUp(t *testing.T) {
 		},
 		{
 			cwd:     wd,
-			s:       "really_really_should_not_exist_" + string(rand.Int()),
+			s:       "really_really_should_not_exist_" + strconv.Itoa(rand.Int()),
 			want:    "",
 			wantErr: errors.New("file not found"),
 		},

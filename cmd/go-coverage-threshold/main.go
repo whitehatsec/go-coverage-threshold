@@ -13,10 +13,12 @@ import (
 const (
 	thresholdDefault = 80.0
 	thresholdUsage   = "threshold that coverage must exceed"
+	filelistUsage   = "list of files to pass to underlying go test command (default ./...)"
 )
 
 var (
 	threshold float64
+	fileList  string
 )
 
 func config(s string) *cover.Config {
@@ -41,6 +43,7 @@ func config(s string) *cover.Config {
 func flags() {
 	flag.Float64Var(&threshold, "threshold", thresholdDefault, thresholdUsage)
 	flag.Float64Var(&threshold, "t", thresholdDefault, thresholdUsage+" (shorthand)")
+	flag.StringVar(&fileList, "fileList", "./...", filelistUsage)
 	flag.Parse()
 }
 
@@ -63,7 +66,7 @@ func goPath() (string, error) {
 func main() {
 	flags()
 
-	output, err := cover.Run()
+	output, err := cover.Run(fileList)
 	if err != nil {
 		os.Exit(1)
 	}
